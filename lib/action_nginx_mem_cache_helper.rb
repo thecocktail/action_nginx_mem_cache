@@ -68,7 +68,7 @@ module ActionNginxMemCacheHelper
     #
     def writing_action_cache_allowed?
       request.get? &&
-        response.headers['Status'].to_i == 200 &&
+        response.status.to_i == 200 &&
         request.env['HTTP_MEM_CACHE_KEY']
     end
     
