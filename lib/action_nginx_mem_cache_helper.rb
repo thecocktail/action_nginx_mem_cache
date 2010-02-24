@@ -69,6 +69,7 @@ module ActionNginxMemCacheHelper
     def writing_action_cache_allowed?
       request.get? &&
         response.status.to_i == 200 &&
+        request.format.to_sym != :embedded &&
         request.env['HTTP_MEM_CACHE_KEY']
     end
     
